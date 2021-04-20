@@ -1,0 +1,2 @@
+1) https://evileg.com/ru/post/523/
+2) https://neerc.ifmo.ru/wiki/index.php?title=Использование_обхода_в_глубину_для_поиска_цикла

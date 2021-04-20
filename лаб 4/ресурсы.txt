@@ -1,0 +1,50 @@
+def cicle(list_top_graph,list_rib_graf):
+    Path=[]
+    v=list_top_graph[0]
+    start_top=v
+    while len(list_rib_graf)!=0:
+        #if len(Path)!=0:
+            #buf=list_rib_graf[0]
+            #v=buf[0]
+        c=v
+        P=[]
+        u=0
+        while u!=c:
+            i=0
+            while i<len(list_rib_graf):
+                buf=list_rib_graf[i]
+                if buf[0]==v:
+                    u=buf[1]
+                    break
+                i=i+1
+            P.append((v,u))
+            list_rib_graf.remove((v,u))
+            list_rib_graf.remove((u,v))
+            v=u
+        print(P)
+        if len(Path)!=0:
+            i=0
+            list_start=[]
+            list_end=[]
+            while i<len(Path):
+                buf=Path[i]
+                if buf[1]==c:
+                    list_start.append(buf)
+                    i=i+1
+                    while i<len(Path):
+                        buf=Path[i]
+                        if buf[1]==start_top:
+                            list_end.append(buf)
+                            break
+                        list_end.append(buf)
+                        i=i+1
+                    break
+                list_start.append(buf)
+                i=i+1
+            Path=list_start
+            Path=list_append(Path,P)
+            Path=list_append(Path,list_end)
+        else:
+            Path=P
+        print(Path)
+    return Path
